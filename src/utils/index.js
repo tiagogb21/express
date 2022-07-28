@@ -1,6 +1,6 @@
-const catchError = ({status, message}) => {
-  if(status) return status;
-  if(message) return message;
-}
+const error = (status, message) => ({
+  status,
+  message,
+});
 
-module.exports = { catchError };
+module.exports = error;
