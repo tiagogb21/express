@@ -12,4 +12,11 @@ const getProductsById = async (id) => {
   return getAllProducts;
 };
 
-module.exports = { getAllProducts, getProductsById };
+const createProduct = async (name, quantity) => {
+  const newProduct = await ProductModels.createProduct(name, quantity);
+  console.log(newProduct)
+  if(!newProduct) return utilsError(404, 'Product already exists');
+  return newProduct;
+} 
+
+module.exports = { getAllProducts, getProductsById, createProduct };
